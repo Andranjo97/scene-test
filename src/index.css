@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.sceneContainer {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+}
