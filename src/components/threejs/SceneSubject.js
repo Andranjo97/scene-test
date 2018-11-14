@@ -1,8 +1,9 @@
 import {Mesh, IcosahedronBufferGeometry, MeshStandardMaterial} from "three";
 
 export default scene => {
-    const radius = 2;
-    const mesh = new Mesh(new IcosahedronBufferGeometry(radius, 2), new MeshStandardMaterial({ flatShading: true }));
+    const radius = 1;
+    const sides = 0;
+    const mesh = new Mesh(new IcosahedronBufferGeometry(radius, sides), new MeshStandardMaterial({ flatShading: true }));
 
     mesh.position.set(0, 0, -20);
 

@@ -1,4 +1,5 @@
-import { Clock, Scene, Color, WebGLRenderer, PerspectiveCamera} from 'three';
+import { Clock, Scene, Color, WebGLRenderer, PerspectiveCamera } from 'three';
+import OrbitControls from "orbit-controls-es6";
 import SceneSubject from "./SceneSubject";
 import GeneralLights from "./GeneralLights";
 
@@ -13,6 +14,7 @@ export default canvas => {
     const scene = buildScene();
     const renderer = buildRender(screenDimensions);
     const camera = buildCamera(screenDimensions);
+    const controls = new OrbitControls(camera, renderer.domElement);
     const sceneSubjects = createSceneSubjects(scene);
 
     function buildScene() {
@@ -53,6 +55,14 @@ export default canvas => {
 
         renderer.render(scene, camera);
     };
+    function createOrbitControls(camera, component) {
+        const controls = new OrbitControls(camera, component);
+        controls.enabled = true;
+        controls.maxDistance = 1500;
+        controls.minDistance = 0;
+
+        return controls
+    }
     const onWindowResize = () => {
         const { width, height } = canvas;
 
